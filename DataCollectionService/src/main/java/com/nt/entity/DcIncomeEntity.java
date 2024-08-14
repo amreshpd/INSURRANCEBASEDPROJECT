@@ -16,5 +16,5 @@ public class DcIncomeEntity {
 	private Integer incomeId;
 	private Integer caseNo;
 	private Double empIncome;
-	private Double propertyIncome;	
+	private Double propertyIncome;
 }

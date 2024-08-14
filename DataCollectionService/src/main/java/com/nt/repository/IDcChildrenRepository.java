@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.nt.entity.DcChildrenEntity;
 
-public interface IDcChildrenRepository extends JpaRepository<DcChildrenEntity, Integer> {
+public interface IDcChildrenRepository extends JpaRepository<DcChildrenEntity, Integer>{
 
 }

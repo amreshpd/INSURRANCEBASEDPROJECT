@@ -24,8 +24,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DcPlanRegisterEntity {
 	@Id
-	@SequenceGenerator(name = "gen1_seq",sequenceName = "app_id_seq",initialValue = 1000,allocationSize = 1)
-	@GeneratedValue(generator = "gen1_seq",strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "gen1_seq", sequenceName = "app_id_seq", initialValue = 1000, allocationSize = 1)
+	@GeneratedValue(generator = "gen1_seq", strategy = GenerationType.SEQUENCE)
 	private Integer appId;
 	@Column(length = 30)
 	private String fullName;
@@ -46,6 +46,6 @@ public class DcPlanRegisterEntity {
 	@Column(updatable = false)
 	private LocalDateTime creationDate;
 	@UpdateTimestamp
-	@Column(insertable  = false)
-	private LocalDateTime updationDate;	
+	@Column(insertable = false)
+	private LocalDateTime updationDate;
 }

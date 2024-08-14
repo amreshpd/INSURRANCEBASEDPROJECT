@@ -19,6 +19,4 @@ public class DcEducationEntity {
 	@Column(length = 40)
 	private String highestQualification;
 	private Integer passOutYear;
-	
-	
 }

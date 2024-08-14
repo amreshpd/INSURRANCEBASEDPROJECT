@@ -19,5 +19,4 @@ public class DcChildrenEntity {
 	private Integer caseNo;
 	private LocalDate childDb;
 	private Long childSSN;
-	
 }
