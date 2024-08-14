@@ -16,22 +16,10 @@ import com.nt.service.IApplicationCitizenRegistrationService;
 public class CitizenApplicationRegistrationOperationController {
 	@Autowired
 	private IApplicationCitizenRegistrationService registrationService;
-
 	@PostMapping("/save")
-	public ResponseEntity<String> saveCitizenApplication(@RequestBody CitizenAppRegistration input) {
-
-		try {
-			// use service
-			int appId = registrationService.registerCitizenApplication(input);
-			if (appId > 0) {
-				return new ResponseEntity<String>("Citizen Application is Registered with id::" + appId,
-						HttpStatus.CREATED);
-			} else {
-				return new ResponseEntity<String>("Invalid SSN or Citizen must belongs to California State",
-						HttpStatus.OK);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
+	public ResponseEntity<String> saveCitizenApplication(@RequestBody CitizenAppRegistration input) throws Exception {
+		// use service
+		int appId = registrationService.registerCitizenApplication(input);
+		return new ResponseEntity<String>("Citizen Application is Registered with id::" + appId, HttpStatus.CREATED);
 	}
 }
