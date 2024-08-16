@@ -6,6 +6,5 @@ import lombok.Data;
 public class PlanSelectionInput {
 	private Integer caseNo;
 	private Integer appId;
-	private String planName;
-
+	private Integer planId;
 }
