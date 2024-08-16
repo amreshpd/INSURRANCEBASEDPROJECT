@@ -13,31 +13,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "CITIZEN_APPLICATION")
+@Table(name = "DC_PLAN_MASTER")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class DcPlanRegisterEntity {
+public class PlanRegisterEntity {
 	@Id
-	@SequenceGenerator(name = "gen1_seq", sequenceName = "app_id_seq", initialValue = 1000, allocationSize = 1)
+	@SequenceGenerator(name = "gen1_seq", sequenceName = "app_id_seq", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(generator = "gen1_seq", strategy = GenerationType.SEQUENCE)
-	private Integer appId;
+	private Integer planId;
 	@Column(length = 30)
-	private String fullName;
-	@Column(length = 40)
-	private String email;
-	@Column(length = 1)
-	private String gender;
-	private Long phoneNo;
-	private Long ssn;
-	@Column(length = 50)
-	private String stateName;
-	private LocalDate dob;
+	private String planName;
+	
+	private LocalDate startDate;
+	private LocalDate endDate;	
+	@Column(length = 100)
+	private String description;
+	@Column(length = 15)
+	private String activeSw;
 	@Column(length = 40)
 	private String createdBy;
 	@Column(length = 40)
