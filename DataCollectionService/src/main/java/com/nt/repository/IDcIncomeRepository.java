@@ -6,4 +6,5 @@ import com.nt.entity.DcIncomeEntity;
 
 public interface IDcIncomeRepository extends JpaRepository<DcIncomeEntity, Integer>{
 
+	public DcIncomeEntity findByCaseNo(int caseNo);
 }
