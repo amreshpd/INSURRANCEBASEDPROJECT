@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: DataCollectionService
+
+  datasource:
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@localhost:1521:xe
+#    username: amresh
+#    password: Amresh1998  
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///jrtp-ish-db
+    username: root
+    password: Amresh1998
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+server:
+  port: 4123
+  
+ar:
+ ssa-web:
+  url: http://localhost:9090/ssa-web-api/find/{ssn} 
+ state: California

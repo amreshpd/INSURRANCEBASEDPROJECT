@@ -13,11 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nt.binding.ChildInputs;
+import com.nt.binding.DcSummaryReport;
+import com.nt.binding.EducationInputs;
+import com.nt.binding.IncomeInputs;
 import com.nt.binding.PlanSelectionInput;
 import com.nt.service.IDcMgmtService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/dc-api")
+@Tag(name = "doc-api",description = "Data Collection Module MicroService")
 public class DcCollectionOperationController {
 	@Autowired
 	private IDcMgmtService dcService;
@@ -42,4 +49,33 @@ public class DcCollectionOperationController {
 		Integer savePlanSelection = dcService.savePlanSelection(input);
 		return new ResponseEntity<Integer>(savePlanSelection, HttpStatus.OK);
 	}
+
+	@PostMapping("/saveIncome")
+	public ResponseEntity<Integer> saveIncomeDetails(@RequestBody IncomeInputs income) {
+		// use service
+		Integer caseNo = dcService.saveIncomeDetails(income);
+		return new ResponseEntity<Integer>(caseNo, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/saveEducation")
+	public ResponseEntity<Integer> saveEducationDetails(@RequestBody EducationInputs education) {
+		// use service
+		Integer caseNo = dcService.saveEducationDetails(education);
+		return new ResponseEntity<Integer>(caseNo, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/saveChild")
+	public ResponseEntity<Integer> saveIncomeDetails(@RequestBody List<ChildInputs> child) {
+		// use service
+		Integer caseNo = dcService.saveChildrenDetails(child);
+		return new ResponseEntity<Integer>(caseNo, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/report/{caseNo}")
+	public ResponseEntity<DcSummaryReport> showSummaryReport(@PathVariable Integer caseNo) {
+		// use service
+		DcSummaryReport showDcSummary = dcService.showDcSummary(caseNo);
+		return new ResponseEntity<DcSummaryReport>(showDcSummary, HttpStatus.OK);
+	}
+
 }
